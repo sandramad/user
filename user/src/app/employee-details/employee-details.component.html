@@ -1,0 +1,23 @@
+<div *ngIf="employee">
+  <div>
+    <label>Name: </label> {{employee.name}}
+  </div>
+  <div>
+    <label>Last Name: </label> {{employee.lastname}}
+  </div>
+  <div>
+    <label>E-mail: </label> {{employee.email}}
+  </div>
+  <div>
+    <label>PESEL: </label> {{employee.pesel}}
+  </div>
+  <div>
+    <label>Sex: </label> {{employee.sex}}
+  </div>
+  <div>
+    <label>Position: </label> {{employee.position}}
+  </div>
+  <span class="button is-small btn-danger" (click)='deleteEmployee()'>Delete</span>
+
+  <hr/>
+</div>

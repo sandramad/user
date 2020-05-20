@@ -1,0 +1,45 @@
+<h3>Create Employee</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastname" required [(ngModel)]="employee.lastname" name="lastname">
+    </div>
+
+    <div class="form-group">
+      <label for="name">E-mail</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="employee.email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="name">PESEL</label>
+      <input type="text" class="form-control" id="pesel" required [(ngModel)]="employee.pesel" name="pesel">
+    </div>
+    <div class="form-group">
+      <label for="name">SEX</label>
+      <select class="form-control" id="sex" required [(ngModel)]="employee.sex" name="sex">
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="name">Position</label>
+      <input type="text" class="form-control" id="position" required [(ngModel)]="employee.position" name="position">
+    </div>
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="text" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
