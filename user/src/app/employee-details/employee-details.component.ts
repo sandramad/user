@@ -42,7 +42,7 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeeService.deleteEmployee(this.id)
       .subscribe(
         data => {
-          this.loadData(this.id);
+          this.router.navigate(['employees']);
         },
         error => console.log(error));
   }

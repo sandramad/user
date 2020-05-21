@@ -1,10 +1,9 @@
-import { EmployeeDetailsComponent } from './../employee-details/employee-details.component';
 import { Observable } from "rxjs";
 import { EmployeeService } from "./../employee.service";
 import { Employee } from "./../employee";
 import { Component, OnInit } from "@angular/core";
-import { Router } from '@angular/router';
 import {map} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-employee-list",
@@ -14,8 +13,7 @@ import {map} from "rxjs/operators";
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
 
-  constructor(private employeeService: EmployeeService,
-    private router: Router) {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit() {
     this.reloadData();
@@ -27,7 +25,6 @@ export class EmployeeListComponent implements OnInit {
         map(employees => employees.data)
       ).subscribe(res => {
         this.employees = res;
-        console.log(this.employees);
       });
   }
 
