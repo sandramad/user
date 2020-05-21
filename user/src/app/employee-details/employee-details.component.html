@@ -1,36 +1,39 @@
-<div *ngIf="employee">
-  <form #userEdit="ngForm" (ngSubmit)="onClickSubmit(userEdit.value)">
-  <div>
+<div [hidden]="!submitted" class="p-3 alert-success">
+  <h4>You updated successfully!</h4>
+</div>
+
+<div *ngIf="employee" class="mt-1" style="width: 400px;">
+  <form (ngSubmit)="onSubmit(u)" #u="ngForm"><div>
     <label>Name: </label>
-    <input class="form-control" type="text" name="name" value="{{employee?.name}}" [(ngModel)]="employ.name" required>
+    <input id="name" type="text" class="form-control" name="name" [ngModel]="employee.name" required>
   </div>
   <div>
     <label>Lastname: </label>
-    <input class="form-control" type="text" name="lastname" [value]="employee.lastname" [(ngModel)]="employ.lastname" required>
+    <input type="text"  class="form-control" id="lastname" [(ngModel)]="employee.lastname" name="lastname" required>
   </div>
   <div>
     <label>E-mail: </label>
-    <input class="form-control" type="email" name="email" id="email" [(ngModel)]="employ.email" required="">
+    <input type="email"  class="form-control" id="email" [(ngModel)]="employee.email" name="email" required>
   </div>
   <div>
     <label>PESEL: </label>
-    <input class="form-control" type="text" name="pesel" value="{{employee?.pesel}}" [(ngModel)]="employ.pesel" required>
+    <input type="text"  class="form-control" id="pesel" [(ngModel)]="employee.pesel" name="pesel" required>
   </div>
   <div>
     <label>Sex: </label>
-    <select class="form-control" id="sex" required [(ngModel)]="employ.sex" name="sex">
-      <option value="{{employee.sex}}" selected>{{employee.sex}}</option>
+    <select class="form-control" id="sex" required [(ngModel)]="employee.sex" name="sex">
+      <option value="{{employee.sex}}" selected>{{employee.sex | titlecase}}</option>
       <option value="female">Female</option>
       <option value="male">Male</option>
     </select>
   </div>
   <div>
     <label>Position: </label>
-    <input class="form-control" type="text" name="position" value="{{employee?.position}}" [(ngModel)]="employ.position" required>
+    <input type="text"  class="form-control" id="position" [(ngModel)]="employee.position" name="position" required>
   </div>
-    <div>
-    <span class="button is-small btn-success btn mr-1" (click)='editEmployee(employee?.id)'>Edit</span>
-    <span class="button is-small btn-danger btn" (click)='deleteEmployee(employee?.id)'>Delete</span>
+    <div class="mt-1">
+    <button class="button is-small btn-success btn mr-1" type="submit">Edit</button>
+    <button class="button is-small btn-danger btn" (click)='deleteEmployee(employee.id)'>Delete</button>
     </div>
   </form>
 </div>
