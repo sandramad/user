@@ -1,23 +1,36 @@
 <div *ngIf="employee">
+  <form #userEdit="ngForm" (ngSubmit)="onClickSubmit(userEdit.value)">
   <div>
-    <label>Name: </label> {{employee?.name}}
+    <label>Name: </label>
+    <input class="form-control" type="text" name="name" value="{{employee?.name}}" [(ngModel)]="employ.name" required>
   </div>
   <div>
-    <label>Last Name: </label> {{employee?.lastname}}
+    <label>Lastname: </label>
+    <input class="form-control" type="text" name="lastname" [value]="employee.lastname" [(ngModel)]="employ.lastname" required>
   </div>
   <div>
-    <label>E-mail: </label> {{employee?.email}}
+    <label>E-mail: </label>
+    <input class="form-control" type="email" name="email" id="email" [(ngModel)]="employ.email" required="">
   </div>
   <div>
-    <label>PESEL: </label> {{employee?.pesel}}
+    <label>PESEL: </label>
+    <input class="form-control" type="text" name="pesel" value="{{employee?.pesel}}" [(ngModel)]="employ.pesel" required>
   </div>
   <div>
-    <label>Sex: </label> {{employee?.sex}}
+    <label>Sex: </label>
+    <select class="form-control" id="sex" required [(ngModel)]="employ.sex" name="sex">
+      <option value="{{employee.sex}}" selected>{{employee.sex}}</option>
+      <option value="female">Female</option>
+      <option value="male">Male</option>
+    </select>
   </div>
   <div>
-    <label>Position: </label> {{employee?.position}}
+    <label>Position: </label>
+    <input class="form-control" type="text" name="position" value="{{employee?.position}}" [(ngModel)]="employ.position" required>
   </div>
-  <span class="button is-small btn-danger btn" (click)='deleteEmployee(employee?.id)'>Delete</span>
-
-  <hr/>
+    <div>
+    <span class="button is-small btn-success btn mr-1" (click)='editEmployee(employee?.id)'>Edit</span>
+    <span class="button is-small btn-danger btn" (click)='deleteEmployee(employee?.id)'>Delete</span>
+    </div>
+  </form>
 </div>

@@ -22,7 +22,7 @@
     <div class="form-group">
       <label for="name">SEX</label>
       <select class="form-control" id="sex" required [(ngModel)]="employee.sex" name="sex">
-        <option value="female">Female</option>
+        <option selected value="female">Female</option>
         <option value="male">Male</option>
       </select>
     </div>
@@ -34,12 +34,13 @@
       <label for="name">Password</label>
       <input type="password" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
     </div>
-
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
 
 <div [hidden]="!submitted">
   <h4>You submitted successfully!</h4>
-  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+  <button class="btn btn-success mr-5" (click)="newEmployee()">Add</button>
+  <button class="btn-success btn" routerLink="/employees">All employees</button>
+
 </div>

@@ -2,21 +2,23 @@ import { Employee } from './../employee';
 import { Component, OnInit, Input } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { map } from 'rxjs/operators';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.css'],providers:[Employee]
+  styleUrls: ['./employee-details.component.css']
 
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee: Observable<Employee[]>;
+  employ: Employee = new Employee();
+  submitted = false;
   constructor(private employeeService: EmployeeService,
               private router: Router,
               private route: ActivatedRoute) { }
-  items = [];
 
   private id: number;
   ngOnInit() {
@@ -45,4 +47,13 @@ export class EmployeeDetailsComponent implements OnInit {
         },
         error => console.log(error));
   }
-}
+  save() {
+    this.employeeService.updateEmployee(this.id, this.employ)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.employ = new Employee();
+  }
+
+  editEmployee() {
+    this.submitted = true;
+    this.save();
+  }}
