@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment';
-import { map } from "rxjs/operators";
 
 const API_URL = environment.apiUrl;
 
@@ -15,7 +14,7 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) { }
 
-  getEmployee(id: number): Observable<Object> {
+  getEmployee(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 

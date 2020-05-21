@@ -4,6 +4,7 @@ import { EmployeeService } from "./../employee.service";
 import { Employee } from "./../employee";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import {map} from "rxjs/operators";
 
 @Component({
   selector: "app-employee-list",
@@ -21,7 +22,13 @@ export class EmployeeListComponent implements OnInit {
   }
 
   reloadData() {
-    this.employees = this.employeeService.getEmployeesList();
+    this.employeeService.getEmployeesList()
+      .pipe(
+        map(employees => employees.data)
+      ).subscribe(res => {
+        this.employees = res;
+        console.log(this.employees);
+      });
   }
 
   deleteEmployee(id: number) {

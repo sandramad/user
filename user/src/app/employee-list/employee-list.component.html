@@ -13,11 +13,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of (employees | async)?.data">
+        <tr *ngFor="let employee of employees">
           <td>{{employee.name}}</td>
           <td>{{employee.lastname}} <br/><small>({{employee.sex}} {{employee.position}})</small></td>
           <td>{{employee.email}}</td>
-          <td><button (click)="deleteEmployee(employee.id)">Delete</button></td>
+          <td><button routerLink="/details/{{employee.id}}">Edit</button><br />
+            <button (click)="deleteEmployee(employee.id)">Delete</button></td>
         </tr>
       </tbody>
     </table>
