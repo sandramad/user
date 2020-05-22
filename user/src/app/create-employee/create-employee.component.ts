@@ -1,6 +1,6 @@
-import { EmployeeService } from './../employee.service';
-import { Employee } from './../employee';
-import { Component, OnInit } from '@angular/core';
+import {EmployeeService} from './../employee.service';
+import {Employee} from './../employee';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-create-employee',
@@ -12,7 +12,8 @@ export class CreateEmployeeComponent implements OnInit {
   employee: Employee = new Employee();
   submitted = false;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService) {
+  }
 
   ngOnInit() {
   }
