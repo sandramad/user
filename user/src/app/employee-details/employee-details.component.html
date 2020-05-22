@@ -1,11 +1,11 @@
 <div class="panel panel-default">
   <h3>Edit employee: {{employee?.name}} {{employee?.lastname}}</h3>
   <div class="panel-body">
-    <div [hidden]="!submitted" class="p-3 alert-success">
-  <h4>You updated successfully!</h4>
+    <div [hidden]="!submitted" class="p-3 alert-success w-50">
+  <h4>Data updated successfully!</h4>
 </div>
 
-<div *ngIf="employee" class="mt-1" style="width: 400px;">
+<div *ngIf="employee" class="mt-1 w-50">
   <form (ngSubmit)="onSubmit(u)" #u="ngForm">
     <div>
       <label>Name: </label>
